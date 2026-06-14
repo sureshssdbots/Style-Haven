@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Style Haven - Home</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        nav { display: flex; justify-content: space-between; padding: 20px 80px; background: #fff; border-bottom: 1px solid #eee; }
+        .nav-links a { text-decoration: none; color: #000; font-weight: bold; margin-left: 20px; }
+        
+        /* Hero Section with Image */
+        .hero { height: 450px; background: url('image1.jpg') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; padding-left: 80px; color: #fff; }
+        .hero h1 { font-size: 45px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        footer { background: #000; color: #fff; padding: 20px; text-align: center; }
+    </style>
 </head>
 <body>
     <nav>
@@ -12,15 +24,9 @@
             <a href="admin.html">ADMIN</a>
         </div>
     </nav>
-
     <section class="hero">
         <h1>TIMELESS STYLE.<br>MADE FOR EVERYDAY.</h1>
-        <button class="hero-btn">SHOP NOW</button>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Style Haven</p>
-    </footer>
+    <footer><p>&copy; 2026 Style Haven</p></footer>
 </body>
 </html>
-
