@@ -17,27 +17,28 @@
         .hero h1 { font-size: 45px; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero-btn { width: 160px; padding: 12px; margin-top: 20px; background: #fff; color: #000; border: none; cursor: pointer; font-weight: bold; }
 
-        /* Main Banner (Features ke upar wala) */
-        .main-banner-section { padding: 40px 80px; text-align: center; }
-        .main-banner { width: 100%; height: auto; border-radius: 8px; }
+        /* Main Banner - Full Width */
+        .main-banner { width: 100%; display: block; }
 
         /* Features Section */
-        .features-section { padding: 0 80px 50px 80px; text-align: center; }
-        .features-section h2 { margin-bottom: 30px; font-size: 28px; }
+        .features-section { padding: 60px 20px; text-align: center; background: #fdfdfd; }
+        .features-section h2 { font-size: 32px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .features-section p { color: #666; margin-bottom: 40px; font-size: 16px; }
         
-        /* Grid layout for 4 images */
-        .features-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 20px; 
-            max-width: 1000px; 
+        /* Stacked Images */
+        .features-stack { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 30px; 
+            max-width: 800px; 
             margin: 0 auto; 
         }
-        .features-grid img { 
+        .features-stack img { 
             width: 100%; 
             height: auto; 
-            border-radius: 8px; 
             display: block; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         /* Footer */
@@ -61,13 +62,13 @@
         <button class="hero-btn">SHOP NOW</button>
     </section>
 
-    <section class="main-banner-section">
-        <img src="image2.png" alt="Main Banner" class="main-banner">
-    </section>
+    <img src="image2.png" alt="Main Banner" class="main-banner">
 
     <section class="features-section">
-        <h2>FEATURES</h2>
-        <div class="features-grid">
+        <h2>OUR SIGNATURE FEATURES</h2>
+        <p>Crafted with precision, designed for your ultimate comfort and style.</p>
+        
+        <div class="features-stack">
             <img src="image3.png" alt="Feature 1">
             <img src="image4.png" alt="Feature 2">
             <img src="image5.png" alt="Feature 3">
