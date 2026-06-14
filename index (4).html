@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style Haven</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 12px; }
+        
+        /* Navbar */
+        nav { display: flex; justify-content: space-between; padding: 20px 80px; align-items: center; border-bottom: 1px solid #eee; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: #000; font-weight: bold; font-size: 14px; }
+        
+        /* Hero - Background image1.jpg */
+        .hero { height: 450px; background: url('image1.jpg') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; padding-left: 80px; color: #fff; }
+        .hero h1 { font-size: 45px; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-btn { width: 160px; padding: 12px; margin-top: 20px; background: #fff; color: #000; border: none; cursor: pointer; font-weight: bold; }
+
+        /* Features */
+        .features { display: flex; justify-content: space-around; padding: 30px; border-bottom: 1px solid #ddd; background: #fff; }
+        .feature-item { text-align: center; font-size: 14px; font-weight: bold; }
+
+        /* Collections */
+        .collections { padding: 40px; text-align: center; }
+        .cat-grid { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .cat-box { width: 180px; height: 250px; background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; font-weight: bold; color: white; border: 1px solid #ddd; }
+
+        /* Promise Section - Image2.jpg */
+        .promise { display: flex; padding: 40px; align-items: center; background: #111111; }
+        .promise-img { width: 50%; height: 250px; background: url('image2.jpg') no-repeat center center/cover; }
+        .promise-text { width: 50%; padding-left: 50px; }
+
+        /* Top Picks */
+        .top-picks { padding: 50px 0; }
+        .top-picks h2 { margin-bottom: 30px; text-align: center; }
+        .scroll-container { display: flex; overflow-x: auto; gap: 25px; padding: 0 80px; scrollbar-width: none; }
+        .p-card { min-width: 250px; flex: 0 0 auto; text-align: left; }
+        .p-img { width: 100%; height: 300px; object-fit: cover; }
+        .add-btn { width: 100%; padding: 10px; border: 1px solid #000; background: #fff; cursor: pointer; }
+        .add-btn:hover { background: #000; color: #fff; }
+
+        /* Footer */
+        footer { background: #000; color: #fff; padding: 40px; text-align: center; }
+        footer a { color: #fff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">FREE SHIPPING ON ALL ORDERS ABOVE ₹999</div>
+    
+    <nav>
+        <h2>STYLE HAVEN</h2>
+        <div class="nav-links">
+            <a href="#">HOME</a> <a href="#">SHOP</a> <a href="#">COLLECTIONS</a> <a href="#">ABOUT US</a> <a href="#">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>TIMELESS STYLE.<br>MADE FOR EVERYDAY.</h1>
+        <button class="hero-btn">SHOP NOW</button>
+    </section>
+
+    <section class="features">
+        <div class="feature-item">FREE SHIPPING<br><small>On all orders above ₹999</small></div>
+        <div class="feature-item">PREMIUM QUALITY<br><small>Finest fabrics & stitching</small></div>
+        <div class="feature-item">EASY RETURNS<br><small>Hassle free returns</small></div>
+        <div class="feature-item">SECURE PAYMENT<br><small>100% safe & secure</small></div>
+    </section>
+
+    <section class="collections">
+        <h2>EXPLORE OUR COLLECTIONS</h2>
+        <div class="cat-grid">
+            <div class="cat-box" style="background-image: url('tshirt.jpg');">T-SHIRTS</div>
+            <div class="cat-box" style="background-image: url('hoodie.jpg');">HOODIES</div>
+            <div class="cat-box" style="background-image: url('shirt.jpg');">SHIRTS</div>
+            <div class="cat-box" style="background-image: url('pant.jpg');">PANTS</div>
+            <div class="cat-box" style="background-image: url('access.jpg');">ACCESSORIES</div>
+        </div>
+    </section>
+
+    <section class="promise">
+        <div class="promise-img"></div>
+        <div class="promise-text">
+            <h3>OUR PROMISE</h3>
+            <h1>QUALITY YOU CAN FEEL. STYLE YOU CAN TRUST.</h1>
+        </div>
+    </section>
+
+    <section class="top-picks">
+        <h2>TOP PICKS</h2>
+        <div class="scroll-container">
+            <div class="p-card"><img src="item1.jpg" class="p-img"><p>Oversized Tee - Black</p><p>₹799</p><button class="add-btn">ADD TO CART</button></div>
+            <div class="p-card"><img src="item2.jpg" class="p-img"><p>Minimal Tee - Beige</p><p>₹799</p><button class="add-btn">ADD TO CART</button></div>
+            <div class="p-card"><img src="item3.jpg" class="p-img"><p>Essential Hoodie</p><p>₹1,299</p><button class="add-btn">ADD TO CART</button></div>
+            <div class="p-card"><img src="item4.jpg" class="p-img"><p>Casual Shirt - Black</p><p>₹999</p><button class="add-btn">ADD TO CART</button></div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 10px;"><a href="#">INSTAGRAM</a></div>
+        <p>Contact Us: support@stylehaven.com</p>
+        <p style="margin-top: 10px; font-size: 12px;">&copy; 2026 Style Haven. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
