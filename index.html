@@ -12,20 +12,20 @@
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { text-decoration: none; color: #000; font-weight: bold; font-size: 14px; }
         
-        /* Hero - Original structure */
+        /* Hero */
         .hero { height: 450px; background: url('image1.jpg') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; padding-left: 80px; color: #fff; }
         .hero h1 { font-size: 45px; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero-btn { width: 160px; padding: 12px; margin-top: 20px; background: #fff; color: #000; border: none; cursor: pointer; font-weight: bold; }
 
-        /* Features - Original structure */
+        /* Features */
         .features { display: flex; justify-content: space-around; padding: 30px; border-bottom: 1px solid #ddd; background: #fff; }
         .feature-item { text-align: center; font-size: 14px; font-weight: bold; }
 
-        /* Banner Sections - New */
-        .brand-banners { padding: 40px 80px; display: flex; flex-direction: column; gap: 30px; }
-        .banner-img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        /* Separate Sections for each Image */
+        .banner-section { width: 100%; padding: 20px 0; text-align: center; }
+        .banner-image { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
-        /* Footer - Original location */
+        /* Footer */
         footer { background: #000; color: #fff; padding: 40px; text-align: center; margin-top: 20px; }
         footer a { color: #fff; text-decoration: none; font-weight: bold; }
     </style>
@@ -53,10 +53,16 @@
         <div class="feature-item">SECURE PAYMENT<br><small>100% safe & secure</small></div>
     </section>
 
-    <section class="brand-banners">
-        <img src="image2.gpg" alt="Banner 1" class="banner-img">
-        <img src="image3.png" alt="Banner 2" class="banner-img">
-        <img src="image4.png" alt="Banner 3" class="banner-img">
+    <section class="banner-section">
+        <img src="image2.png" alt="Banner 1" class="banner-image">
+    </section>
+
+    <section class="banner-section">
+        <img src="image3.png" alt="Banner 2" class="banner-image">
+    </section>
+
+    <section class="banner-section">
+        <img src="image4.png" alt="Banner 3" class="banner-image">
     </section>
 
     <footer>
@@ -67,4 +73,3 @@
 
 </body>
 </html>
-
