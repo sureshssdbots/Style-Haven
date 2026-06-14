@@ -13,20 +13,35 @@
         .nav-links a { text-decoration: none; color: #000; font-weight: bold; font-size: 14px; }
         
         /* Hero */
-        .hero { height: 450px; background: url('image3.png') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; padding-left: 80px; color: #fff; }
+        .hero { height: 450px; background: url('image1.jpg') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; padding-left: 80px; color: #fff; }
         .hero h1 { font-size: 45px; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero-btn { width: 160px; padding: 12px; margin-top: 20px; background: #fff; color: #000; border: none; cursor: pointer; font-weight: bold; }
 
-        /* Features */
-        .features { display: flex; justify-content: space-around; padding: 30px; border-bottom: 1px solid #ddd; background: #fff; }
-        .feature-item { text-align: center; font-size: 14px; font-weight: bold; }
+        /* Main Banner (Features ke upar wala) */
+        .main-banner-section { padding: 40px 80px; text-align: center; }
+        .main-banner { width: 100%; height: auto; border-radius: 8px; }
 
-        /* Separate Sections for each Image */
-        .banner-section { width: 100%; padding: 20px 0; text-align: center; }
-        .banner-image { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        /* Features Section */
+        .features-section { padding: 0 80px 50px 80px; text-align: center; }
+        .features-section h2 { margin-bottom: 30px; font-size: 28px; }
+        
+        /* Grid layout for 4 images */
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+        .features-grid img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+            display: block; 
+        }
 
         /* Footer */
-        footer { background: #000; color: #fff; padding: 40px; text-align: center; margin-top: 20px; }
+        footer { background: #000; color: #fff; padding: 40px; text-align: center; margin-top: 50px; }
         footer a { color: #fff; text-decoration: none; font-weight: bold; }
     </style>
 </head>
@@ -46,23 +61,18 @@
         <button class="hero-btn">SHOP NOW</button>
     </section>
 
-    <section class="features">
-        <div class="feature-item">FREE SHIPPING<br><small>On all orders above ₹999</small></div>
-        <div class="feature-item">PREMIUM QUALITY<br><small>Finest fabrics & stitching</small></div>
-        <div class="feature-item">EASY RETURNS<br><small>Hassle free returns</small></div>
-        <div class="feature-item">SECURE PAYMENT<br><small>100% safe & secure</small></div>
+    <section class="main-banner-section">
+        <img src="image2.png" alt="Main Banner" class="main-banner">
     </section>
 
-    <section class="banner-section">
-        <img src="image2.png" alt="Banner 1" class="banner-image">
-    </section>
-
-    <section class="banner-section">
-        <img src="image3.png" alt="Banner 2" class="banner-image">
-    </section>
-
-    <section class="banner-section">
-        <img src="image4.png" alt="Banner 3" class="banner-image">
+    <section class="features-section">
+        <h2>FEATURES</h2>
+        <div class="features-grid">
+            <img src="image3.png" alt="Feature 1">
+            <img src="image4.png" alt="Feature 2">
+            <img src="image5.png" alt="Feature 3">
+            <img src="image6.png" alt="Feature 4">
+        </div>
     </section>
 
     <footer>
