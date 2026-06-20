@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Firebase Connection Test</title>
+<style>
+  body{font-family:monospace;background:#0a0a0a;color:#eee;padding:16px;font-size:14px;}
+  h2{color:#d4af37;}
+  button{display:block;width:100%;padding:14px;margin:10px 0;background:#d4af37;color:#000;
+    border:none;border-radius:6px;font-size:15px;font-weight:bold;}
+  .log{white-space:pre-wrap;word-break:break-word;background:#111;border:1px solid #333;
+    border-radius:6px;padding:10px;margin-top:8px;min-height:40px;}
+  .ok{color:#5aaa6a;} .err{color:#e05555;} .info{color:#7fb3ff;}
+</style>
+</head>
+<body>
+<h2>🔧 Firebase Connection Test</h2>
+<div class="info">Project: style-haven-46faf</div>
+
+<button onclick="testFirestore()">1️⃣ Test Firestore (read products)</button>
+<div id="fs-log" class="log">Result yahan aayega...</div>
+
+<button onclick="testRTDB()">2️⃣ Test Realtime Database (write + read)</button>
+<div id="rtdb-log" class="log">Result yahan aayega...</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import {
+    initializeFirestore, collection, getDocs
+  } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+  import {
+    getDatabase, ref, set, get
+  } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC4VyBsFir-iea2zHtC96o_0Qysl2D0qBs",
+    authDomain: "style-haven-46faf.firebaseapp.com",
+    projectId: "style-haven-46faf",
+    storageBucket: "style-haven-46faf.firebasestorage.app",
+    messagingSenderId: "4045949853",
+    appId: "1:4045949853:web:34d7e591fbc059caa2bd74",
+    measurementId: "G-7LC9X12JP8",
+    databaseURL: "https://style-haven-46faf-default-rtdb.firebaseio.com/"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const fsDb = initializeFirestore(app, {
+    experimentalForceLongPolling: true,
+    experimentalLongPollingOptions: { timeoutSeconds: 5 },
+    useFetchStreams: false
+  });
+
+  // Reads the 'products' collection only — rules allow "read: if true" on
+  // products for everyone, so this isolates pure network reachability from
+  // any auth/admin permission question.
+  window.testFirestore = async function() {
+    const log = document.getElementById('fs-log');
+    log.textContent = '⏳ Testing Firestore (reading products)...';
+    log.className = 'log info';
+    const started = Date.now();
+    try {
+      const snap = await getDocs(collection(fsDb, 'products'));
+      const ms = Date.now() - started;
+      log.textContent = '✅ FIRESTORE REACHABLE! (' + ms + 'ms)\nDocs found in products: ' + snap.size;
+      log.className = 'log ok';
+    } catch (e) {
+      const ms = Date.now() - started;
+      log.textContent = '❌ FIRESTORE FAILED (' + ms + 'ms)\nCode: ' + (e.code || 'none') + '\nMessage: ' + (e.message || e);
+      log.className = 'log err';
+    }
+  };
+
+  const rtdb = getDatabase(app);
+
+  window.testRTDB = async function() {
+    const log = document.getElementById('rtdb-log');
+    log.textContent = '⏳ Testing Realtime Database...';
+    log.className = 'log info';
+    const started = Date.now();
+    try {
+      const testRef = ref(rtdb, 'connection_test/ping');
+      await set(testRef, { time: Date.now(), msg: 'hello' });
+      const snap = await get(testRef);
+      const ms = Date.now() - started;
+      if (snap.exists()) {
+        log.textContent = '✅ RTDB WORKING! (' + ms + 'ms)\nData: ' + JSON.stringify(snap.val());
+        log.className = 'log ok';
+      } else {
+        log.textContent = '⚠ Wrote ok but read returned no data (' + ms + 'ms)';
+        log.className = 'log err';
+      }
+    } catch (e) {
+      const ms = Date.now() - started;
+      log.textContent = '❌ RTDB FAILED (' + ms + 'ms)\nCode: ' + (e.code || 'none') + '\nMessage: ' + (e.message || e);
+      log.className = 'log err';
+    }
+  };
+</script>
+</body>
+</html>
